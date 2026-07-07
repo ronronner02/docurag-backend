@@ -1,0 +1,44 @@
+.git
+.idea
+.vscode
+.venv
+venv/
+myenv/
+env/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Runtime data
+uploads/
+data/
+ollama/
+embedding/
+
+# Python caches and test artifacts
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local databases, logs, and temporary files
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.tmp
+*.bak
+
+# OS metadata
+.DS_Store
+Thumbs.db

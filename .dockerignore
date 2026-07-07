@@ -1,0 +1,51 @@
+# Local Python environments
+.venv/
+venv/
+myenv/
+env/
+
+# Runtime data and user uploads are mounted or generated at runtime.
+data/
+uploads/
+
+# Git, editor, and local development metadata
+.git/
+.github/
+.devcontainer/
+.vscode/
+.idea/
+
+# Secrets and local environment files. docker compose reads .env via env_file;
+# it does not need to be baked into the image.
+.env
+.env.*
+!.env.example
+
+# Python caches and test artifacts
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Tests and docs are not needed in the runtime image.
+tests/
+docs/
+test_requirements.txt
+pytest.ini
+
+# Local databases, logs, and temporary files
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.tmp
+*.bak
+
+# OS metadata
+.DS_Store
+Thumbs.db

@@ -1,0 +1,2 @@
+pyarrow>=16,<25
+pytrec_eval>=0.5; platform_system != "Windows"
