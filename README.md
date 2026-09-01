@@ -47,6 +47,37 @@ Client
 
 See [docs/architecture.md](docs/architecture.md) for a fuller architecture walkthrough.
 
+## Repository layout
+
+```text
+docurag-backend/
+├── main.py                     FastAPI application entry point
+├── app/
+│   ├── routes/                 API endpoints: /embed, /retrieval, /rag
+│   ├── services/               Loader, splitter, embedding providers, pgvector store
+│   └── utils/                  Shared helpers
+├── scripts/                    HotpotQA / BEIR evaluation scripts
+├── tests/
+│   ├── integration/            End-to-end pipeline tests against a live pgvector
+│   ├── services/               Service-layer unit tests
+│   └── utils/
+├── utils/docker/               Container helper scripts
+├── docs/architecture.md        Fuller architecture walkthrough
+├── requirements.txt            Full dependency set
+├── requirements.lite.txt       Slimmer set for the lite image
+├── requirements-eval.txt       Evaluation-only dependencies
+├── Dockerfile / Dockerfile.lite
+├── docker-compose.yaml         API + pgvector for local development
+├── api-compose.yaml            API only
+├── db-compose.yaml             pgvector only
+└── .env.example                Configuration template
+```
+
+`app/routes/` and `app/services/` carry the request/response boundary and the pipeline
+implementation respectively: routes stay thin and typed, while services own the loader,
+splitter, embedding provider, and vector-store logic. The three compose files let you run
+the API and database together or separately during development.
+
 ## Quick Start
 
 ### 1. Configure environment
